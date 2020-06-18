@@ -1,2 +1,0 @@
-# exercise-tracker
-freeCodeCamp APIs and Microservices Projects - Exercise Tracker Microservice

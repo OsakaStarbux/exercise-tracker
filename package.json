@@ -1,0 +1,34 @@
+{
+  "name": "exercise-tracker",
+  "version": "0.0.1",
+  "description": "Exercise Tracker project for freeCodeCamp.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.19",
+    "body-parser": "^1.19.0",
+    "debug": "^4.2.0",
+    "cookie-parser": "^1.4.5",
+    "http-errors": "^1.7.3",
+    "morgan": "^1.10.0",
+    "dayjs": "^1.8.28"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "repository": {
+    "url": "https://glitch.com/edit/#!/hello-express"
+  },
+  "license": "MIT",
+  "keywords": [
+    "node",
+    "glitch",
+    "express",
+    "freeCodeCamp",
+    "exercise",
+    "tracker"
+  ]
+}

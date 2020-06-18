@@ -1,0 +1,89 @@
+/* this file is loaded by index.html and styles the page */
+
+* {
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 2em 1em;
+  line-height: 1.5em;
+  background-color: #F7EFE2;
+  background-image: url(https://cdn.glitch.com/9c31cdd9-bcc5-4dc8-9e90-e1c363baeb2f%2Fundraw_working_out_6psf.svg?v=1592198417929);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: right bottom;
+  color: #F7EFE2;
+}
+
+h1 {
+   font-family: 'Luckiest Guy', cursive;
+  font-size: 3em;
+  color: #23241f;
+  max-width: calc(100% - 5rem);
+  line-height: 1.1;
+}
+
+form {
+/*   background-color: #0066cc; */
+  background-color: #F7EFE2; 
+  color: #23241f;
+  display: grid;
+  padding: 1em;
+  margin-bottom: 10px;
+  padding-top: 0px;
+  max-width: 40ch;
+  border: 2px solid #F7EFE2;
+  border-radius: 10px;
+}
+
+
+input {
+  border: 1px solid #23241f;
+  border-radius: 2px;
+  display: block;
+  background:#F7EFE2;
+  font-size: 16px;
+  margin-bottom: 10px;
+  padding: 5px;
+  width: 100%;
+}
+
+form button {
+  background-color: #F7EFE2;
+  color: #23241f;
+  border: 2px solid #23241f;
+  border-radius: .25em;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1.4em;
+  padding: 0.25em 1em;
+  max-width: 20ch;
+}
+
+form button:hover {
+  background-color: #efdfc3;
+}
+
+footer {
+  margin-top: 3em;
+  padding-top: 1.5em;
+  border-top: 1px solid lightgrey;
+}
+
+h2 {
+  padding: 0 0 10 0;
+  margin: 0 0 10 0;
+}
+
+.inline-input {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+ 
+}
+
+input[type="number"] {
+  text-align: center;
+}
