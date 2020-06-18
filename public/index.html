@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A cool thing made with Glitch">
+
+    <title>Exercise Trackerrr!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- import the webpage's client-side javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+       <h1>Exercise Tracker</h1>
+     
+    </header>
+
+    <main>
+      <form action="/api/exercise/new-user" method="post">
+        <h2>Sign up</h2>
+        
+          <input name="username" type="text" maxlength="100" required placeholder="choose a username">
+        <button type="submit" id="submit-user">Add User</button>
+      </form>
+<!-- userId(_id), description, duration, and optionally date -->
+      <form action="/api/exercise/add" method="post">
+        <h2>Add an exercise</h2>
+          <input name="userId" id="userId" type="text" maxlength="100" placeholder="user ID (required)" required >
+          <input name="description" type="text" maxlength="100" required placeholder="exercise description (required)">
+        <div class="inline-input">  
+        <label for="duration"> Duration in mins</label>
+          <input name="duration" id="duration" type="number" min="1" max="60" value="2" step="1" required>
+        </div>
+        <div class="inline-input">
+          <label for="date">Date</label>
+        <input name="date" id="date" type="date">
+        </div> 
+        <button type="submit" id="submit-exercise">Add Exercise</button>
+      </form>
+    </main>
+  </body>
+</html>
