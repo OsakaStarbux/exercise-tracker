@@ -23,5 +23,12 @@ const ExerciseSchema = new Schema({
   }
 })
 
+// Virtual for formatted date
+ExerciseSchema
+  .virtual('formattedDate')
+  .get(function() {
+    return this.dateObj.toDateString()
+})
+
 //Export function to create "Exercise" model class
 module.exports = mongoose.model('Exercise', ExerciseSchema );
