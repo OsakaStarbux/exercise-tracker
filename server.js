@@ -2,7 +2,7 @@
 
 const express = require("express")
 const app = express()
-
+const cors = require('cors')
 const createError = require('http-errors')
 const path = require('path')
 const cookieParser = require('cookie-parser')
@@ -16,6 +16,7 @@ mongoose.connect(process.env.MONGO_URI, {
 const router = require('./routes/routes')
 
 // use middleware
+app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))

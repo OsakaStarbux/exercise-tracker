@@ -24,15 +24,13 @@ exports.exercise_create_post = function(req, res, next) {
         return next(err);
       }
       // got user
-      // format datestring
-      const dateStr = dayjs(dateObj).format("ddd MMM DD YYYY");
 
       res.json({
         username: result.username,
         description: description,
         duration: +duration,
         _id: result._id,
-        date: dateStr
+        date: dateObj.toDateString()
       });
     });
   });
@@ -41,13 +39,14 @@ exports.exercise_create_post = function(req, res, next) {
 exports.exercise_log = function(req, res, next) {
   //Check what params are available and filter results {userId}[&from][&to][&limit]
   const { userId, from, to, limit } = req.query;
-
-  User.findOne({ _id: userId }, "username", function(err, result) {
+console.log(userId, from, to, limit )
+  User.findOne({ _id: userId }, "username", function(err, foundUser) {
     if (err) {
+      console.log("err at findOne in get log", err)
       return next(err);
     }
     // got user
-    let query = Exercise.find({}, "description duration date -_id");
+    let query = Exercise.find({ user: userId}).lean()
 
     if (from) {
       const fromDate = new Date(from);
@@ -62,14 +61,27 @@ exports.exercise_log = function(req, res, next) {
     }
     query.exec(function(err, results) {
       if (err) {
+        console.log("err at find exercise in get log")
         return next(err);
       }
       //we have results
+      
+      const newRresults = results.map(result => {
+        return {
+         
+          username: foundUser.username,
+          description: result.description,
+          duration: result.duration,
+           _id: result._id,
+          date: result.date.toDateString(),
+        }
+      })
+      
       res.json({
         _id: userId,
-        username: result.username,
-        count: results.length,
-        log: results
+        username: foundUser.username,
+        log: newRresults,
+        count: results.length
       });
     });
   });
