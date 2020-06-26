@@ -26,11 +26,11 @@ exports.exercise_create_post = function(req, res, next) {
       // got user
 
       res.json({
-        username: result.username,
-        description: description,
-        duration: +duration,
         _id: result._id,
-        date: dateObj.toDateString()
+        username: result.username,
+        date: dateObj.toDateString(),
+        duration: +duration,
+        description: description
       });
     });
   });
@@ -49,14 +49,17 @@ console.log(userId, from, to, limit )
     let query = Exercise.find({ user: userId}).lean()
 
     if (from) {
+      console.log("FROM query param added", from)
       const fromDate = new Date(from);
       query.where("date").gte(fromDate);
     }
     if (to) {
+      console.log("TO query param added", to)
       const toDate = new Date(to);
       query.where("date").lte(toDate);
     }
     if (limit) {
+      console.log("LIMIT query param added", +limit)
       query.limit(+limit);
     }
     query.exec(function(err, results) {
@@ -67,12 +70,14 @@ console.log(userId, from, to, limit )
       //we have results
       
       const newRresults = results.map(result => {
+        
+        console.log(typeof result.description,typeof result.duration, typeof result.date)
         return {
          
-          username: foundUser.username,
+       //   username: foundUser.username,
           description: result.description,
           duration: result.duration,
-           _id: result._id,
+        //   _id: result._id,
           date: result.date.toDateString(),
         }
       })
@@ -80,8 +85,9 @@ console.log(userId, from, to, limit )
       res.json({
         _id: userId,
         username: foundUser.username,
+        count: results.length,
         log: newRresults,
-        count: results.length
+        
       });
     });
   });

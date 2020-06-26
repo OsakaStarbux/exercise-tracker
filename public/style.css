@@ -10,8 +10,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   margin: 2em 1em;
   line-height: 1.5em;
-  background-color: #F7EFE2;
-  background-image: url(https://cdn.glitch.com/9c31cdd9-bcc5-4dc8-9e90-e1c363baeb2f%2Fundraw_working_out_6psf.svg?v=1592198417929);
+  background-image: linear-gradient(to top, #d9aa00, #77bd43, #00bf93, #00b6d4, #00a4ea);;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: right bottom;
@@ -21,7 +20,7 @@ body {
 h1 {
    font-family: 'Luckiest Guy', cursive;
   font-size: 3em;
-  color: #23241f;
+  color: white;
   max-width: calc(100% - 5rem);
   line-height: 1.1;
 }
