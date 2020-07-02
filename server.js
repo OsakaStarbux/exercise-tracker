@@ -3,6 +3,7 @@
 const express = require("express")
 const app = express()
 const cors = require('cors')
+const bodyParser = require('body-parser')
 const createError = require('http-errors')
 const path = require('path')
 const cookieParser = require('cookie-parser')
@@ -19,7 +20,8 @@ const router = require('./routes/routes')
 app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({extended: false}))
+// app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 // make all the files in 'public' (html, css, JS for this page) available

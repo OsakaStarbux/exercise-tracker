@@ -69,24 +69,24 @@ console.log(userId, from, to, limit )
       }
       //we have results
       
-      const newRresults = results.map(result => {
+      const newResults = results.map(result => {
         
-        console.log(typeof result.description,typeof result.duration, typeof result.date)
         return {
          
-       //   username: foundUser.username,
+           username: foundUser.username,
           description: result.description,
           duration: result.duration,
-        //   _id: result._id,
+          _id: result._id,
           date: result.date.toDateString(),
         }
       })
-      
+    
       res.json({
         _id: userId,
         username: foundUser.username,
         count: results.length,
-        log: newRresults,
+        //revlog: newResults,
+        log: newResults.slice().reverse()
         
       });
     });
