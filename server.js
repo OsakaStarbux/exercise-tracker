@@ -20,8 +20,7 @@ const router = require('./routes/routes')
 app.use(cors())
 app.use(logger('dev'))
 app.use(express.json())
-app.use(bodyParser.urlencoded({extended: false}))
-// app.use(express.urlencoded({ extended: false }))
+app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 
 // make all the files in 'public' (html, css, JS for this page) available

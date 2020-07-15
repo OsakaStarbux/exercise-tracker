@@ -4,7 +4,7 @@ const dayjs = require("dayjs");
 
 exports.exercise_create_post = function(req, res, next) {
   const { userId, description, duration, date } = req.body;
-  const dateObj = date == "" ? new Date() : new Date(date);
+  const dateObj = date == "" || date == undefined ? new Date() : new Date(date);
 
   const exercise = new Exercise({
     user: userId,
@@ -72,7 +72,6 @@ console.log(userId, from, to, limit )
       const newResults = results.map(result => {
         
         return {
-         
            username: foundUser.username,
           description: result.description,
           duration: result.duration,

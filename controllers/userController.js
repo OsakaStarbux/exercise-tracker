@@ -3,11 +3,11 @@ const User = require("../models/user");
 exports.user_create_post = function(req, res, next) {
   const { username } = req.body;
   User.findOne({ username: username }, function(err, results) {
-    if (err) {
+    
       if (err) {
         return next(err);
       }
-    }
+    
     // no errors, chceck if results is empty
     if (results == null) {
       // username is available
