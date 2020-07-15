@@ -16,10 +16,7 @@ const ExerciseSchema = new Schema({
     required: true
   },
   date: {
-    type: Date,
-    // `Date.now` returns the current unix timestamp as a number
-    // currently doing this default in the controller too
-    default: Date.now
+    type: Date
   }
 })
 
